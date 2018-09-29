@@ -1,0 +1,56 @@
+<mvc:View
+  height="100%"
+  xmlns:mvc="sap.ui.core.mvc"
+  controllerName="newProject.Doktor.controller.Doctor"
+  xmlns="sap.m"
+  xmlns:l="sap.ui.layout"
+  xmlns:core="sap.ui.core"
+  xmlns:f="sap.f">
+  <ScrollContainer
+    height="100%"
+    width="100%"
+    horizontal="true"
+    vertical="true"
+    focusable="true">
+    <HBox
+      alignItems="Start"
+      justifyContent="Start">
+      <Label text="DOKTOR SAYISI: " />
+      <Label text="{/doctorCountModel}"/>
+    </HBox>
+    <VBox height="100%" width="100%" alignItems="Center" justifyContent="Center">
+      <Button width="250px" text="Doktor Ekle"  press="addEditDoctor" />
+    </VBox>
+    <List id="doktorList" 
+      items="{
+      path: '/DoctorList'
+      }">
+      <CustomListItem>
+        <HBox>
+          <VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+            <HBox>
+              <Label text="Doktor Ad Soyad:" />
+              <Label text="{doctorAd}"/>
+            </HBox>
+            <HBox>
+              <Label text="Doktor Unvan:" />
+              <Label text="{doctorUnvan}"/>
+            </HBox>
+            <HBox>
+              <Label text="Doktor Branş:" />
+              <Label text="Aile Hekimi"/>  
+            </HBox>
+          </VBox>
+        </HBox>
+        <HBox
+          alignItems="Start"
+          justifyContent="End">
+          <items>
+            <Button text="Edit"  type="Emphasized" class="sapUiSmallMarginEnd" press="editDoctor" />
+            <Button text="Delete"  type="Reject" class="sapUiSmallMarginEnd" press="deleteDoctor"/>
+          </items>
+        </HBox>
+      </CustomListItem>
+    </List>
+  </ScrollContainer>
+</mvc:View>

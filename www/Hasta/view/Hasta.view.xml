@@ -1,0 +1,67 @@
+<mvc:View
+	height="100%"
+	controllerName="newProject.Hasta.controller.Hasta"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Page height="100%" enableScrolling="true" showHeader="false">
+		<HBox
+			alignItems="Start"
+			justifyContent="Start">
+			<Label text="HASTA SAYISI: " />
+			<Label text="{/patientCountModel}"/>
+		</HBox>
+		<HBox
+			alignItems="Start"
+			justifyContent="End">
+			<items>
+				<Button text="Yeni Hasta Kaydı"  type="Emphasized" class="sapUiSmallMarginEnd" press="newAddPatiend" />
+			</items>
+		</HBox>
+		<ComboBox
+			selectedKey="{/comboBoxKey}"
+			id="doctorListCombobox"
+			selectionChange="patientListClean"
+			showSecondaryValues= "true"
+			items="{
+			path: '/DoctorList'
+
+			}">
+			<core:Item key="{id}" text="{doctorAd}" />
+		</ComboBox>
+		<Button text="Hastaları Listele"  type="Emphasized" class="sapUiSmallMarginEnd" press="patientListView" />
+		<List id="list1" items="{/PatientList}">
+			<CustomListItem>
+				<HBox>
+					<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+						<HBox>
+							<Label text="Hasta Adı Soyad:" />
+							<Label text="{patientName}"/>
+						</HBox>
+						<HBox>
+							<Label text="Hastalık Tanısı:" />
+							<Label text="{patientIllName}"/>
+						</HBox>
+						<HBox>
+							<Label text="İlaçları::" />
+							<Label text="{patientMedicine_Name}"/>  
+						</HBox>
+					</VBox>
+				</HBox>
+				<HBox
+					alignItems="Start"
+					justifyContent="End">
+					<items>
+						<Button text="Delete"  type="Reject" class="sapUiSmallMarginEnd" press="deletePatient"/>
+					</items>
+				</HBox>
+			</CustomListItem>
+		</List>
+	</Page>
+
+</mvc:View>
+
+
+
+
+

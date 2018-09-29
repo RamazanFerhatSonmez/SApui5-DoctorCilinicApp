@@ -1,0 +1,61 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+
+    <Dialog id="dialogId" title = "INFORMATION">
+        <l:Grid defaultSpan = "L12 M12 S12" width = "auto" id = "idGrid2">
+            <l:content>
+                <f:SimpleForm id="SimpleFormDisplay354"
+                    minWidth="1024"
+                    maxContainerCols="2"
+                    editable="false"
+                    layout="ResponsiveGridLayout"
+                    title="Hasta Ekleme Formu"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    columnsL="2"
+                    columnsM="2">
+                    <f:content>
+                        <Label text="Hastanın Adı Soyadı" />
+                        <Input id = "patientNameDialog"/>
+
+                        <Label text="Hastalık Tanısı" />
+                        <VBox>
+                            <ComboBox
+                                selectedKey="{/comboBoxIllIdKey}"
+                                id="idNewPatientDiagnosis"
+                                selectionChange="selecedPatientIll"
+                                showSecondaryValues= "true"
+                                items="{
+                                path: '/patientDiagnosis'
+
+                                }">
+
+                                <core:Item key="{illID}" text="{illName}" />
+                            </ComboBox>
+                            <Label text="Alacağı İlac::" />
+                            <ComboBox
+                              id="idPatientMedicineName"
+                              showSecondaryValues= "true"
+                              items="{
+                              path: '/patientMedicineNameModel'
+
+                              }">
+
+                              <core:Item key="{id}" text="{medicineName}" />
+                          </ComboBox>
+                      </VBox>
+                  </f:content>
+              </f:SimpleForm>
+          </l:content>
+      </l:Grid>
+      <buttons>
+        <Button text = "CLOSE" press = "addNewPatientDialogClose" type = "Reject"/>
+        <Button text = "ADD" press = "addNewPatientToDB" type = "Accept"/>
+    </buttons>
+</Dialog>
+</core:FragmentDefinition>

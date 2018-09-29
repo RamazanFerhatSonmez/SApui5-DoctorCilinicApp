@@ -1,0 +1,46 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+
+    <Dialog id="dialogId" title = "INFORMATION">
+        <l:Grid defaultSpan = "L12 M12 S12" width = "auto" id = "idGrid2">
+            <l:content>
+                <f:SimpleForm id="SimpleFormDisplay354"
+                    minWidth="1024"
+                    maxContainerCols="2"
+                    editable="false"
+                    layout="ResponsiveGridLayout"
+                    title="Doktor Güncelleme Formu"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    columnsL="2"
+                    columnsM="2">
+                    <f:content>
+                        <Label text="Doktor Adı Soyadı:" />
+                        <Input id = "idEditDoctorName"/>
+
+                        <Label text="Doktor Ünvanı:" />
+                        <ComboBox
+                            id="idEditDoctorUnvan"
+                            showSecondaryValues= "true"
+                            items="{
+                            path: '/Modeldoctortitle2'
+                            
+                            }">
+
+                            <core:Item key="{titleId}" text="{doktorTitle}" />
+                      </ComboBox>
+                  </f:content>
+              </f:SimpleForm>
+          </l:content>
+      </l:Grid>
+      <buttons>
+        <Button text = "CLOSE" press = "updateDoctorDialogClose" type = "Reject"/>
+        <Button text = "UPDATE" press = "updateDoctorToDB" type = "Accept"/>
+    </buttons>
+</Dialog>
+</core:FragmentDefinition>

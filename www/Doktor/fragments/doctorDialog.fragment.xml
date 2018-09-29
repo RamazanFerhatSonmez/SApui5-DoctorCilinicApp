@@ -1,0 +1,49 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+
+    <Dialog id="dialogId" title = "INFORMATION">
+        <l:Grid defaultSpan = "L12 M12 S12" width = "auto" id = "idGrid2">
+            <l:content>
+                <f:SimpleForm id="SimpleFormDisplay354"
+                    minWidth="1024"
+                    maxContainerCols="2"
+                    editable="false"
+                    layout="ResponsiveGridLayout"
+                    title="Doktor Ekleme Formu"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    columnsL="2"
+                    columnsM="2">
+                    <f:content>
+                        <Label text="Doktor Adı:" />
+                        <Input id = "idAddDoctorName"/>
+
+                        <Label text="Doktor Soyadı:" />
+                        <Input id = "idAddDoctorSurname"/>
+
+                        <Label text="Doktor Ünvanı:" />
+                        <ComboBox
+                            id="idAddDoctorUnvan"
+                            showSecondaryValues= "true"
+                            items="{
+                            path: '/Modeldoctortitle2'
+                            
+                            }">
+
+                            <core:Item key="{titleId}" text="{doktorTitle}" />
+                      </ComboBox>
+                  </f:content>
+              </f:SimpleForm>
+          </l:content>
+      </l:Grid>
+      <buttons>
+        <Button text = "CLOSE" press = "addDoctorDialogClose" type = "Reject"/>
+        <Button text = "ADD" press = "addDoctorToDB" type = "Accept"/>
+    </buttons>
+</Dialog>
+</core:FragmentDefinition>
